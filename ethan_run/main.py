@@ -197,7 +197,7 @@ def run_game(assets, state):
             # Collision detection
             if any(state.player_rect.colliderect(obstacle["rect"]) for obstacle in obstacles):
                 assets["gameover_sound"].play()
-                return
+                state.game_active = False
 
             screen.blit(assets["jump"] if not state.on_ground else assets["run"], state.player_rect)
 
